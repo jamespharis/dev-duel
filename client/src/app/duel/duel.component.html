@@ -1,21 +1,131 @@
-<div
-  style="
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+<div style="
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20vh;
-  "
->
+    margin-top: 3vh;
+  ">
   <div style="display: flex; flex-direction: row">
-    <app-text-input
-      (usernameChange)="receiveUsernameOne($event)"
-    ></app-text-input>
+    <app-text-input (usernameChange)="receiveUsernameOne($event)"></app-text-input>
     <p style="margin: 2vh 20px">VS</p>
-    <app-text-input
-      (usernameChange)="receiveUsernameTwo($event)"
-    ></app-text-input>
+    <app-text-input (usernameChange)="receiveUsernameTwo($event)"></app-text-input>
   </div>
   <br />
-  <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
+
+  <div *ngIf="userOne && userTwo">
+  <div class="big-container">
+    <div class="profile-container"  [ngClass]="{ 'winner': userOne.winner }">
+      <div *ngIf="userOne.winner" class="winner-winner-chicken-dinner">Winner</div>
+      <div class="image-container">
+        <img src={{userOne.avatar_url}} alt="Profile Picture" height="200px" width="200px">
+        <p class="biography">{{userOne.bio}}</p>
+      </div>
+      <div class="info-container">
+        <div class="info-block">
+          <div class="info-row">
+            <p class="info-title">username</p>
+            <p class="info-received">{{userOne.username}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">name</p>
+            <p class="info-received">{{userOne.name}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">location</p>
+            <p class="info-received">{{userOne.location}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">titles</p>
+            <p class="info-received">{{userOne.titles}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">fav language</p>
+            <p class="info-received">{{userOne['favorite-language']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">total stars</p>
+            <p class="info-received">{{userOne['total-stars']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">highest star count</p>
+            <p class="info-received">{{userOne['highest-starred']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">public repos</p>
+            <p class="info-received">{{userOne['public-repos']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">perfect repos</p>
+            <p class="info-received">{{userOne['perfect-repos']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">followers</p>
+            <p class="info-received">{{userOne.followers}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">following</p>
+            <p class="info-received">{{userOne.following}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="profile-container" [ngClass]="{ 'winner': userTwo.winner }">
+      <div *ngIf="userTwo.winner" class="winner-winner-chicken-dinner">Winner</div>
+      <div class="image-container">
+        <img src={{userTwo.avatar_url}} alt="Profile Picture" height="200px" width="200px">
+        <p class="biography">{{userTwo.bio}}</p>
+      </div>
+      <div class="info-container">
+        <div class="info-block">
+          <div class="info-row">
+            <p class="info-title">username</p>
+            <p class="info-received">{{userTwo.username}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">name</p>
+            <p class="info-received">{{userTwo.name}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">location</p>
+            <p class="info-received">{{userTwo.location}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">titles</p>
+            <p class="info-received">{{userTwo.titles}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">fav language</p>
+            <p class="info-received">{{userTwo['favorite-language']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">total stars</p>
+            <p class="info-received">{{userTwo['total-stars']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">highest star count</p>
+            <p class="info-received">{{userTwo['highest-starred']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">public repos</p>
+            <p class="info-received">{{userTwo['public-repos']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">perfect repos</p>
+            <p class="info-received">{{userTwo['perfect-repos']}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">followers</p>
+            <p class="info-received">{{userTwo.followers}}</p>
+          </div>
+          <div class="info-row">
+            <p class="info-title">following</p>
+            <p class="info-received">{{userTwo.following}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,13 +1,74 @@
-<div
-  style="
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+    
+<div style="
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20vh;
-  "
->
+    margin-top: 5vh;
+  ">
   <app-text-input (usernameChange)="receiveUsername($event)"></app-text-input>
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
+  <br>
+  <div *ngIf="this.newUser.name"></div>
+  <div *ngIf="this.newUser.name ===''; else showResults"></div>
+  <ng-template #showResults>
+  <div class="profile-container">
+    <div class="image-container">
+      <img src={{newUser.avatar_url}} height="200px" width="200px">
+      <p class="biography">{{newUser.bio}}</p>
+    </div>
+    <div class="info-container">
+      <div class="info-block">
+        <div class="info-row">
+          <p class="info-title">username</p>
+          <p class="info-received">{{newUser.username}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">name</p>
+          <p class="info-received">{{newUser.name}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">location</p>
+          <p class="info-received">{{newUser.location}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">titles</p>
+          <p class="info-received">{{newUser.titles}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">fav language</p>
+          <p class="info-received">{{newUser['favorite-language']}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">total stars</p>
+          <p class="info-received">{{newUser['total-stars']}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">highest star count</p>
+          <p class="info-received">{{newUser['highest-starred']}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">public repos</p>
+          <p class="info-received">{{newUser['public-repos']}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">perfect repos</p>
+          <p class="info-received">{{newUser['perfect-repos']}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">followers</p>
+          <p class="info-received">{{newUser.followers}}</p>
+        </div>
+        <div class="info-row">
+          <p class="info-title">following</p>
+          <p class="info-received">{{newUser.following}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
 </div>

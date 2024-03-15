@@ -12,9 +12,10 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   async inspectUser(username = 'andrew') {
-    let data = await this.http.get(inspectUserUrl + username).toPromise();
+    let data = await this.http.get<UserData>(inspectUserUrl + username).toPromise();
     console.log(data);
     return data;
+    
   }
 
   async duelUsers(user1 = 'fabpot', user2 = 'andrew') {
@@ -23,4 +24,20 @@ export class UserService {
     return data;
   }
 
+}
+
+interface UserData {
+  username: string;
+  name: string;
+  location: string;
+  bio: string;
+  avatar_url: string;
+  titles: string[];
+  'favorite-language': string;
+  'public-repos': number;
+  'total-stars': number;
+  'highest-starred': number;
+  'perfect-repos': number;
+  followers: number;
+  following: number;
 }
