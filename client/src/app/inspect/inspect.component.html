@@ -13,7 +13,13 @@
   <br />
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
   <br>
-  <div *ngIf="this.newUser.name"></div>
+  
+  
+
+  <!-- <div *ngIf="this.newUser.username === undefined; then showError"></div>
+  <ng-template #showError>
+    <p>The user {{this.username}} was not found.</p>
+  </ng-template> -->
   <div *ngIf="this.newUser.name ===''; else showResults"></div>
   <ng-template #showResults>
   <div class="profile-container">
